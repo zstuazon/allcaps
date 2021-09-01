@@ -1,13 +1,13 @@
-@ Describe the hardware to the assembler
+@ hardware to the assembler
 	.arch armv6
 	.cpu cortex-a53
 	.syntax unified
 
-@ Declare any external functions
+@ external functions
 	.extern putchar
 	.global main
 
-@Define any constants
+@ Define constants
 	.equ EXIT_SUCCESS, 0	@ success return from main
 	.equ EOF, -1
 	.equ FP_OFFSET, 4	@ fp offset in stack frame
@@ -51,9 +51,5 @@ next:
 done:	
 	
 	mov 	r0, EXIT_SUCCESS
-	//bl	putchar
 	ldmfd	sp!, {r0-r4, fp, pc}
-	//sub 	sp, fp, FP_OFFSET
-	//pop	{r4, fp, lr}
-	//bx	lr
 .end
